@@ -29,6 +29,12 @@ function delBtnCallback(e) {
   printLibrary();
 }
 
+function readBtnCallback(e) {
+  myLibrary.find((x) => x.title === e.currentTarget.dataset.book).read = true;
+  // eslint-disable-next-line no-use-before-define
+  printLibrary();
+}
+
 function generateBookDiv(book) {
   const newBook = document.createElement("div");
   newBook.classList.add("card");
@@ -61,6 +67,15 @@ function generateBookDiv(book) {
   delBtn.dataset.book = book.title;
   delBtn.addEventListener("click", delBtnCallback);
   newBook.append(delBtn);
+
+  if (!book.read) {
+    const readBtn = document.createElement("button");
+    readBtn.textContent = "Read";
+    readBtn.classList.add("read-btn");
+    readBtn.dataset.book = book.title;
+    readBtn.addEventListener("click", readBtnCallback);
+    newBook.append(readBtn);
+  }
 }
 
 function printLibrary() {
