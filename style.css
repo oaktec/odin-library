@@ -75,3 +75,8 @@ h1 {
   width: 90%;
   justify-self: left;
 }
+
+.del-btn {
+  color: red;
+  margin-top: 40px;
+}

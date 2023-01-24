@@ -18,6 +18,17 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
 }
 
+function delBtnCallback(e) {
+  const delIndex = myLibrary.findIndex(
+    (x) => x.title === e.currentTarget.dataset.book
+  );
+  if (delIndex > -1) {
+    myLibrary.splice(delIndex, 1);
+  }
+  // eslint-disable-next-line no-use-before-define
+  printLibrary();
+}
+
 function generateBookDiv(book) {
   const newBook = document.createElement("div");
   newBook.classList.add("card");
@@ -43,6 +54,13 @@ function generateBookDiv(book) {
   read.textContent = book.read ? `✅ Read` : "❌ Unread";
   read.classList.add("read");
   newBook.append(read);
+
+  const delBtn = document.createElement("button");
+  delBtn.textContent = "Delete";
+  delBtn.classList.add("del-btn");
+  delBtn.dataset.book = book.title;
+  delBtn.addEventListener("click", delBtnCallback);
+  newBook.append(delBtn);
 }
 
 function printLibrary() {
