@@ -3,16 +3,21 @@ body {
   color: orange;
 }
 
+h1 {
+  margin: 32px;
+}
+
 .library-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 64px;
+  padding: 64px;
 }
 
 .card {
   background-color: beige;
-  height: 250px;
-  width: 250px;
+  max-width: 500px;
+  aspect-ratio: 1 / 1;
   border-radius: 16px;
   color: black;
 
@@ -36,4 +41,37 @@ body {
 .pages,
 .read {
   font-size: 0.9rem;
+}
+
+.new-book-btn {
+  background-color: gray;
+  border-radius: 8px;
+  padding: 16px 32px;
+  margin: 32px;
+  color: palegreen;
+}
+
+.new-book-form {
+  background-color: gray;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  width: min(400px, 100%);
+  justify-content: left;
+  padding: 16px;
+  gap: 8px;
+  margin: 32px;
+}
+
+.new-book-form label {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  width: 100%;
+  text-align: right;
+  gap: 8px;
+}
+
+.new-book-form input {
+  width: 90%;
+  justify-self: left;
 }

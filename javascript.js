@@ -1,6 +1,6 @@
 const libraryWrapper = document.querySelector(".library-wrapper");
 
-let myLibrary = [];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -14,12 +14,6 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
-}
-
-function printLibrary() {
-  myLibrary.forEach((book) => {
-    generateBookDiv(book);
-  });
 }
 
 function generateBookDiv(book) {
@@ -49,6 +43,13 @@ function generateBookDiv(book) {
   newBook.append(read);
 }
 
+function printLibrary() {
+  myLibrary.forEach((book) => {
+    generateBookDiv(book);
+  });
+}
+
 addBookToLibrary("The Overstory", "Richard Powers", 512, false);
 addBookToLibrary("Pachinko", "Min Jin Lee", 502, true);
+addBookToLibrary("The Last Samurai", "Helen DeWitt", 548, true);
 printLibrary();
