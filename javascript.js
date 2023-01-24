@@ -46,6 +46,8 @@ function generateBookDiv(book) {
 }
 
 function printLibrary() {
+  libraryWrapper.innerHTML = "";
+  myLibrary.sort((a, b) => (a.title < b.title ? -1 : 1));
   myLibrary.forEach((book) => {
     generateBookDiv(book);
   });
@@ -59,6 +61,23 @@ printLibrary();
 newBookBtn.addEventListener("click", (e) => {
   newBookBtn.style.display = "none";
   newBookForm.style.display = "grid";
+
+  e.preventDefault();
+});
+
+newBookForm.addEventListener("submit", (e) => {
+  const formData = new FormData(e.target);
+  const formProps = Object.fromEntries(formData);
+  addBookToLibrary(
+    formProps["book-title"],
+    formProps["book-author"],
+    formProps["book-pages"],
+    formProps["book-read"]
+  );
+  printLibrary();
+
+  newBookBtn.style.display = "block";
+  newBookForm.style.display = "none";
 
   e.preventDefault();
 });
