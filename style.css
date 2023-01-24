@@ -54,7 +54,7 @@ h1 {
 .new-book-form {
   background-color: gray;
 
-  display: grid;
+  display: none;
   grid-template-columns: 1fr;
   width: min(400px, 100%);
   justify-content: left;
