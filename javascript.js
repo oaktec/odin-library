@@ -4,14 +4,19 @@ const newBookForm = document.querySelector(".new-book-form");
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 
-  this.info = () =>
-    `${title} by ${author}, ${pages} pages, ${read ? "read" : "not read yet"}`;
+  info() {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${
+      this.read ? "read" : "not read yet"
+    }`;
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -82,6 +87,7 @@ function printLibrary() {
   libraryWrapper.innerHTML = "";
   myLibrary.sort((a, b) => (a.title < b.title ? -1 : 1));
   myLibrary.forEach((book) => {
+    console.log(book.info());
     generateBookDiv(book);
   });
 }
