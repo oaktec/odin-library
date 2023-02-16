@@ -14,15 +14,27 @@
     <form class="new-book-form">
       <label for="book-title" class="input-row">
         Title:
-        <input type="text" name="book-title" id="book-title" />
+        <input
+          type="text"
+          name="book-title"
+          id="book-title"
+          minlength="3"
+          required
+        />
       </label>
       <label for="book-author" class="input-row">
         Author:
-        <input type="text" name="book-author" id="book-author" />
+        <input
+          type="text"
+          name="book-author"
+          id="book-author"
+          minlength="3"
+          required
+        />
       </label>
       <label for="book-pages" class="input-row">
         Pages:
-        <input type="number" name="book-pages" id="book-pages" />
+        <input type="number" name="book-pages" id="book-pages" required />
       </label>
       <label for="book-read" class="input-row">
         Read:
